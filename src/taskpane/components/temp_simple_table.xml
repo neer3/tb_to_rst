@@ -1,0 +1,112 @@
+<w:tbl xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:tblPr>
+    <w:tblStyle w:val="TableGrid" />
+    <w:tblW w:w="0" w:type="auto" />
+    <w:tblLook w:val="0480" w:firstRow="0" w:lastRow="0" w:firstColumn="1" w:lastColumn="0"
+      w:noHBand="0" w:noVBand="1" />
+  </w:tblPr>
+  <w:tblGrid>
+    <w:gridCol w:w="3116" />
+    <w:gridCol w:w="3117" />
+    <w:gridCol w:w="3117" />
+  </w:tblGrid>
+  <w:tr w:rsidR="00C56387" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+    w14:paraId="266D480B" w14:textId="77777777" w:rsidTr="00AC6EE3">
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="3116" w:type="dxa" />
+      </w:tcPr>
+      <w:p w14:paraId="4CC60666" w14:textId="77777777" w:rsidR="00C56387" w:rsidRDefault="00C56387">
+        <w:r>
+          <w:t>A</w:t>
+        </w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="3117" w:type="dxa" />
+      </w:tcPr>
+      <w:p w14:paraId="63F05B9B" w14:textId="77777777" w:rsidR="00C56387" w:rsidRDefault="00C56387">
+        <w:r>
+          <w:t>B</w:t>
+        </w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="3117" w:type="dxa" />
+      </w:tcPr>
+      <w:p w14:paraId="16F7405F" w14:textId="77777777" w:rsidR="00C56387" w:rsidRDefault="00C56387">
+        <w:r>
+          <w:t>C</w:t>
+        </w:r>
+      </w:p>
+    </w:tc>
+  </w:tr>
+  <w:tr w:rsidR="00C56387" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+    w14:paraId="739554B2" w14:textId="77777777" w:rsidTr="00AC6EE3">
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="3116" w:type="dxa" />
+      </w:tcPr>
+      <w:p w14:paraId="49718511" w14:textId="77777777" w:rsidR="00C56387" w:rsidRDefault="00C56387">
+        <w:r>
+          <w:t>D</w:t>
+        </w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="3117" w:type="dxa" />
+      </w:tcPr>
+      <w:p w14:paraId="230ACA6C" w14:textId="77777777" w:rsidR="00C56387" w:rsidRDefault="00C56387">
+        <w:r>
+          <w:t>E</w:t>
+        </w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="3117" w:type="dxa" />
+      </w:tcPr>
+      <w:p w14:paraId="700464A1" w14:textId="77777777" w:rsidR="00C56387" w:rsidRDefault="00C56387">
+        <w:r>
+          <w:t>F</w:t>
+        </w:r>
+      </w:p>
+    </w:tc>
+  </w:tr>
+  <w:tr w:rsidR="00C56387" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+    w14:paraId="05EAF98A" w14:textId="77777777" w:rsidTr="00AC6EE3">
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="3116" w:type="dxa" />
+      </w:tcPr>
+      <w:p w14:paraId="42DF1332" w14:textId="77777777" w:rsidR="00C56387" w:rsidRDefault="00C56387">
+        <w:r>
+          <w:t>G</w:t>
+        </w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="3117" w:type="dxa" />
+      </w:tcPr>
+      <w:p w14:paraId="02F0399D" w14:textId="77777777" w:rsidR="00C56387" w:rsidRDefault="00C56387">
+        <w:r>
+          <w:t>H</w:t>
+        </w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="3117" w:type="dxa" />
+      </w:tcPr>
+      <w:p w14:paraId="54DEE458" w14:textId="77777777" w:rsidR="00C56387" w:rsidRDefault="00C56387">
+        <w:r>
+          <w:t>I</w:t>
+        </w:r>
+      </w:p>
+    </w:tc>
+  </w:tr>
+</w:tbl>
