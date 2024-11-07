@@ -3,9 +3,6 @@ from bs4 import BeautifulSoup
 import numpy as np
 
 def html_to_pandas(html_content):
-    """
-    Convert HTML table to pandas DataFrame while handling complex structures
-    """
     soup = BeautifulSoup(html_content, 'html.parser')
     table = soup.find('table')
     
@@ -68,13 +65,6 @@ def html_to_pandas(html_content):
     return df
 
 def convert_table(input_html, output_format='markdown'):
-    """
-    Convert complex HTML table to desired format using pandas and pandoc
-    
-    Parameters:
-    input_html (str): HTML table content
-    output_format (str): Desired output format (markdown, csv, etc.)
-    """
     # Convert to pandas DataFrame
     df = html_to_pandas(input_html)
     
@@ -85,40 +75,9 @@ def convert_table(input_html, output_format='markdown'):
 
 # Example usage
 example_html = """
-<table style="border-collapse: collapse; width: 100%;">
-  <tr>
-    <th style="border: 1px solid black; padding: 8px;" rowspan="2">Product</th>
-    <th style="border: 1px solid black; padding: 8px;" rowspan="2">Quantity</th>
-    <th style="border: 1px solid black; padding: 8px;" colspan="2">Pricing</th>
-    <th style="border: 1px solid black; padding: 8px;" rowspan="1">Total</th>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black; padding: 8px;">Unit Price</td>
-    <td style="border: 1px solid black; padding: 8px;">Discount</td>
-    <td style="border: 1px solid black; padding: 8px;"></td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black; padding: 8px;">A</td>
-    <td style="border: 1px solid black; padding: 8px;">5</td>
-    <td style="border: 1px solid black; padding: 8px;">10</td>
-    <td style="border: 1px solid black; padding: 8px;">10</td>
-    <td style="border: 1px solid black; padding: 8px;">45</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black; padding: 8px;">B</td>
-    <td style="border: 1px solid black; padding: 8px;">2</td>
-    <td style="border: 1px solid black; padding: 8px;">25</td>
-    <td style="border: 1px solid black; padding: 8px;">5</td>
-    <td style="border: 1px solid black; padding: 8px;">48</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black; padding: 8px;" colspan="4">Grand Total</td>
-    <td style="border: 1px solid black; padding: 8px;">93</td>
-  </tr>
-</table>
+<table style="border-collapse: collapse; width: 100%;">  <tr>    <th style="border: 1px solid black; padding: 8px;" colspan="6">Sales report</th>  </tr>  <tr>    <td style="border: 1px solid black; padding: 8px;" colspan="3">Q1</td>    <td style="border: 1px solid black; padding: 8px;" colspan="3">Q2</td>  </tr>  <tr>    <td style="border: 1px solid black; padding: 8px;">Jan</td>    <td style="border: 1px solid black; padding: 8px;">Feb</td>    <td style="border: 1px solid black; padding: 8px;">Mar</td>    <td style="border: 1px solid black; padding: 8px;">April</td>    <td style="border: 1px solid black; padding: 8px;">May</td>    <td style="border: 1px solid black; padding: 8px;">June</td>  </tr>  <tr>    <td style="border: 1px solid black; padding: 8px;">1</td>    <td style="border: 1px solid black; padding: 8px;">2</td>    <td style="border: 1px solid black; padding: 8px;">3</td>    <td style="border: 1px solid black; padding: 8px;">4</td>    <td style="border: 1px solid black; padding: 8px;">5</td>    <td style="border: 1px solid black; padding: 8px;">6</td>  </tr></table>
 """
 
-# Test the conversion
 df = html_to_pandas(example_html)
 print("\nDataFrame representation:")
 print(df)
