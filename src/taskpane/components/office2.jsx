@@ -5,18 +5,22 @@ export function getAllOOXML() {
 
     await context.sync();
 
-    console.log("Document OOXML:", bodyOoxml.value);
+    // console.log("Document OOXML:", bodyOoxml.value);
 
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(bodyOoxml.value, "application/xml");
 
-    const table = xmlDoc.getElementsByTagName("w:tbl")[0];
-    convertOOXMLToHTMLString(table.outerHTML);
-    if (table) {
-      console.log("Table XML:", table.outerHTML);
-    } else {
-      console.log("No tables found in the document.");
+    const tables = xmlDoc.getElementsByTagName("w:tbl");
+    let tablesHTML = [];
+    for (let i = 0; i < tables.length; i++) {
+      tablesHTML.push(convertOOXMLToHTMLString(tables[i].outerHTML));
     }
+    // if (table) {
+    //   // console.log("Table XML:", table.outerHTML);
+    // } else {
+    //   console.log("No tables found in the document.");
+    // }
+    console.log(tablesHTML);
   }).catch((error) => {
     console.error("Error:", error);
   });
@@ -71,6 +75,9 @@ function convertOOXMLToHTMLString(xmlString) {
   }
 
   html += "</table>";
+
+  // console.log(html);
+
   return html;
 }
 
