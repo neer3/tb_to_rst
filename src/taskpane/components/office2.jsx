@@ -1,9 +1,13 @@
-export function getAllOOXML() {
-  Word.run(async (context) => {
+export async function getAllOOXML(tableId) {
+  let resTables = [];
+  await Word.run(async (context) => {
     const body = context.document.body;
     const bodyOoxml = body.getOoxml();
-
+    const comments = body.getComments();
+    comments.load("items");
     await context.sync();
+
+    // debugger;
 
     // console.log("Document OOXML:", bodyOoxml.value);
 
@@ -12,18 +16,24 @@ export function getAllOOXML() {
 
     const tables = xmlDoc.getElementsByTagName("w:tbl");
     let tablesHTML = [];
-    for (let i = 0; i < tables.length; i++) {
+    for (let i = tableId; i < tables.length; i++) {
       tablesHTML.push(convertOOXMLToHTMLString(tables[i].outerHTML));
+      console.log(tablesHTML[0]);
+      console.log("------------------------------------------------------------------------------------");
+      resTables = tablesHTML;
+      return;
     }
     // if (table) {
     //   // console.log("Table XML:", table.outerHTML);
     // } else {
     //   console.log("No tables found in the document.");
     // }
-    console.log(tablesHTML);
+    // console.log(tablesHTML);
   }).catch((error) => {
     console.error("Error:", error);
   });
+
+  return resTables;
 }
 
 function convertOOXMLToHTMLString(xmlString) {
@@ -75,8 +85,6 @@ function convertOOXMLToHTMLString(xmlString) {
   }
 
   html += "</table>";
-
-  // console.log(html);
 
   return html;
 }

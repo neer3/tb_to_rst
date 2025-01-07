@@ -43,9 +43,75 @@ function getOOXML() {
   });
 }
 
-export async function readSimpleTable2() {
-  getAllOOXML();
+export async function readSimpleTable2(tableId) {
+  let tables = await getAllOOXML(tableId);
+  await Word.run(async (context) => {
+    let tables = context.document.body.tables;
 
+    tables.load({ $all: true });
+
+    await context.sync();
+
+    // for (let i = 0; i < tables.items.length; i++) {
+    //   let temp = tables.items[i].rows;
+
+    //   temp.load({ $all: true });
+
+    //   await context.sync();
+    //   if (i == tableId) {
+    //     finalTables.push(
+    //       simpleTableToMarkdown(tables.items[i].values, tables.items[i].getRange(), tables.items[i].rows.items, insert)
+    //     );
+    //   }
+    // }
+
+    // debugger;
+    // firstTable.load({ $all: true });
+
+    // await context.sync();
+
+    // let tableRows = firstTable.rows;
+
+    // tableRows.load({ $all: true });
+
+    // await context.sync();
+
+    // let row0 = tableRows.items[0];
+    // let row1 = tableRows.items[1];
+
+    // row0.load({ $all: true });
+    // row1.load({ $all: true });
+
+    // await context.sync();
+
+    // let cells0 = row0.cells;
+
+    // cells0.load({ $all: true });
+
+    // await context.sync();
+
+    // let cells00 = cells0.items[0];
+    // cells00.load({ $all: true });
+
+    // let cells03 = cells0.items[3];
+    // cells03.load({ $all: true });
+
+    // let range = firstTable.getRange();
+    // await context.sync();
+    // range.load({ $all: true });
+    // await context.sync();
+
+    // let pa = range.paragraphs;
+
+    // pa.load({ $all: true });
+    // await context.sync();
+
+    // debugger;
+
+    // simpleTableToMarkdown(firstTable.values, firstTable.getRange(), firstTable.rows.items);
+    // debugger;
+  });
+  return tables;
   // await Word.run(async (context) => {
   //   let firstTable = context.document.body.tables.getFirst();
   //   let para = context.document.body.paragraphs;
@@ -108,6 +174,51 @@ export async function readSimpleTable2() {
   //   // simpleTableToMarkdown(firstTable.values, firstTable.getRange(), firstTable.rows.items);
   //   // debugger;
   // });
+}
+
+export async function readSimpleTable3() {
+  // getOOXML();
+  let finalTables = [];
+  await Word.run(async (context) => {
+    const body = context.document.body;
+    let eventContexts = [];
+    // Track the body object to listen for comment events
+    body.track();
+    await context.sync();
+
+    // Register event handlers for comments
+    eventContexts.push(
+      body.onCommentAdded.add(() => {
+        console.log("here added");
+      })
+    );
+    // eventContexts.push(body.onCommentChanged.add(onCommentChangedHandler));
+    // eventContexts.push(body.onCommentDeleted.add(onCommentDeletedHandler));
+
+    await context.sync();
+    let tables = context.document.body.tables;
+
+    tables.load({ $all: true });
+
+    await context.sync();
+
+    for (let i = 0; i < tables.items.length; i++) {
+      let temp = tables.items[i].getRange();
+
+      temp.load({ $all: true });
+      await context.sync();
+
+      let a = temp.getHtml();
+
+      await context.sync();
+
+      console.log(a.value);
+
+      console.log("-----------------------------");
+    }
+  });
+
+  return finalTables;
 }
 
 export async function readSimpleTable(tableId, insert) {
