@@ -187,11 +187,11 @@ export async function readSimpleTable3() {
     await context.sync();
 
     // Register event handlers for comments
-    eventContexts.push(
-      body.onCommentAdded.add(() => {
-        console.log("here added");
-      })
-    );
+    // eventContexts.push(
+    //   body.onCommentAdded.add(() => {
+    //     console.log("here added");
+    //   })
+    // );
     // eventContexts.push(body.onCommentChanged.add(onCommentChangedHandler));
     // eventContexts.push(body.onCommentDeleted.add(onCommentDeletedHandler));
 
